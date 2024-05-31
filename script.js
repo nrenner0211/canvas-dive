@@ -13,7 +13,7 @@ class FlowFieldEffect {
     #height;
     constructor(ctx, width, height){
         this.#ctx = ctx;
-        this.#ctx.strokeStyle = 'white';
+        this.#ctx.strokeStyle = 'blue';
         this.#width = width;
         this.#height = height;
     }
@@ -26,7 +26,8 @@ class FlowFieldEffect {
     }
     animate(){
         this.#draw(100, 100);
-        requestAnimationFrame(this.animate);
+        // important to bind the animate function to the class instance
+        requestAnimationFrame(this.animate.bind(this));
         console.log('animate');
     }
 }
